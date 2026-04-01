@@ -1,0 +1,64 @@
+---
+import { site } from '../content/site';
+---
+
+<section class="relative overflow-hidden bg-primary px-4 pb-16 pt-20 md:pb-24 md:pt-28">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-accent blur-3xl"></div>
+    <div class="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-accent blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-5xl text-center">
+    <!-- Badge -->
+    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-sm text-primary-foreground">
+      <span class="inline-block h-2 w-2 rounded-full bg-accent animate-pulse"></span>
+      무료로 시작하세요
+    </div>
+
+    <!-- Headline -->
+    <h1 class="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight text-primary-foreground md:text-6xl md:leading-tight whitespace-pre-line">
+      {site.hero.headline}
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/80 whitespace-pre-line">
+      {site.hero.subheadline}
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <a
+        href={site.appUrl}
+        class="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg transition-all hover:brightness-110 hover:shadow-xl"
+      >
+        {site.hero.ctaPrimary}
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+      {site.playStoreUrl && (
+        <a
+          href={site.playStoreUrl}
+          class="inline-flex items-center gap-2 rounded-xl border border-primary-foreground/30 px-8 py-4 text-base font-medium text-primary-foreground transition-all hover:bg-primary-foreground/10"
+        >
+          {site.hero.ctaSecondary}
+        </a>
+      )}
+    </div>
+
+    <!-- App mockup placeholder -->
+    <div class="mx-auto mt-14 max-w-sm">
+      <div class="overflow-hidden rounded-3xl border-4 border-primary-foreground/10 bg-background shadow-2xl">
+        <div class="aspect-[9/16] flex items-center justify-center bg-muted p-8">
+          <div class="text-center space-y-4">
+            <div class="mx-auto h-16 w-16 rounded-2xl bg-primary flex items-center justify-center">
+              <span class="text-2xl font-display font-bold text-primary-foreground">O</span>
+            </div>
+            <p class="text-sm text-muted-foreground">앱 스크린샷을<br/>images/app-mockup.png에<br/>추가하세요</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

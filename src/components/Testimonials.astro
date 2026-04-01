@@ -1,0 +1,37 @@
+---
+import { site } from '../content/site';
+---
+
+<section class="bg-primary px-4 py-20 md:py-28">
+  <div class="mx-auto max-w-5xl">
+    <div class="text-center">
+      <span class="text-sm font-medium uppercase tracking-widest text-accent">Testimonials</span>
+      <h2 class="mt-3 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
+        함께하는 분들의 이야기
+      </h2>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {site.testimonials.map((t) => (
+        <div class="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-6 backdrop-blur">
+          <!-- Quote icon -->
+          <svg class="mb-4 h-8 w-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="text-sm leading-relaxed text-primary-foreground/90">
+            {t.quote}
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-foreground">
+              {t.name[0]}
+            </div>
+            <div>
+              <p class="text-sm font-medium text-primary-foreground">{t.name}</p>
+              <p class="text-xs text-primary-foreground/60">{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

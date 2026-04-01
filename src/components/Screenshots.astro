@@ -1,0 +1,44 @@
+---
+// Screenshots section — replace placeholder images with actual app captures
+const screenshots = [
+  { src: '/images/screenshot-home.png', alt: 'OMYQT 홈 화면 — 오늘의 묵상' },
+  { src: '/images/screenshot-qt.png', alt: 'OMYQT QT 상세 — 절별 해석' },
+  { src: '/images/screenshot-timeline.png', alt: 'OMYQT 타임라인 — 묵상 기록' },
+  { src: '/images/screenshot-reflection.png', alt: 'OMYQT 회고 — 오늘의 감사와 기도' },
+];
+---
+
+<section class="px-4 py-20 md:py-28">
+  <div class="mx-auto max-w-5xl">
+    <div class="text-center">
+      <span class="text-sm font-medium uppercase tracking-widest text-accent">Screenshots</span>
+      <h2 class="mt-3 font-display text-3xl font-bold text-foreground md:text-4xl">
+        이렇게 사용해요
+      </h2>
+      <p class="mx-auto mt-4 max-w-lg text-base text-muted-foreground">
+        매일 아침 열어보는 나만의 묵상 공간
+      </p>
+    </div>
+
+    <!-- Horizontal scroll gallery -->
+    <div class="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:justify-center md:flex-wrap">
+      {screenshots.map((ss) => (
+        <div class="flex-shrink-0 snap-center">
+          <div class="w-56 overflow-hidden rounded-2xl border border-border bg-white shadow-md md:w-48">
+            <div class="aspect-[9/16] bg-muted flex items-center justify-center p-4">
+              <p class="text-xs text-center text-muted-foreground leading-relaxed">
+                {ss.alt}<br/><br/>
+                <span class="text-[10px]">이미지를<br/>{ss.src}에<br/>추가하세요</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
