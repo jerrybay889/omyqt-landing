@@ -2,7 +2,8 @@ export const site = {
   name: 'OMYQT',
   tagline: '매일 아침, 나를 위한 말씀',
   url: 'https://www.omyqt.com',
-  appUrl: 'https://app.omyqt.com',
+  appUrl: 'https://www.omyqt.com/intro',
+  appAuthUrl: 'https://www.omyqt.com/auth',
 
   hero: {
     headline: '매일 아침,\n나를 위한 말씀',

@@ -1,10 +1,9 @@
 ---
-// Screenshots section — replace placeholder images with actual app captures
 const screenshots = [
-  { src: '/images/screenshot-home.png', alt: 'OMYQT 홈 화면 — 오늘의 묵상' },
+  { src: '/images/screenshot-home.jpg', alt: 'OMYQT 홈 화면 — 오늘의 묵상' },
   { src: '/images/screenshot-qt.png', alt: 'OMYQT QT 상세 — 절별 해석' },
-  { src: '/images/screenshot-timeline.png', alt: 'OMYQT 타임라인 — 묵상 기록' },
-  { src: '/images/screenshot-reflection.png', alt: 'OMYQT 회고 — 오늘의 감사와 기도' },
+  { src: '/images/screenshot-timeline.jpg', alt: 'OMYQT 타임라인 — 묵상 기록' },
+  { src: '/images/screenshot-reflection.jpg', alt: 'OMYQT 회고 — 오늘의 감사와 기도' },
 ];
 ---
 
@@ -25,12 +24,12 @@ const screenshots = [
       {screenshots.map((ss) => (
         <div class="flex-shrink-0 snap-center">
           <div class="w-56 overflow-hidden rounded-2xl border border-border bg-white shadow-md md:w-48">
-            <div class="aspect-[9/16] bg-muted flex items-center justify-center p-4">
-              <p class="text-xs text-center text-muted-foreground leading-relaxed">
-                {ss.alt}<br/><br/>
-                <span class="text-[10px]">이미지를<br/>{ss.src}에<br/>추가하세요</span>
-              </p>
-            </div>
+            <img
+              src={ss.src}
+              alt={ss.alt}
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       ))}
