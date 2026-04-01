@@ -17,26 +17,67 @@ import { site } from '../content/site';
         href={site.appAuthUrl}
         class="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg transition-all hover:brightness-110"
       >
-        웹에서 바로 시작하기
+        지금 무료로 시작하기
       </a>
-      {site.playStoreUrl ? (
-        <a
-          href={site.playStoreUrl}
-          class="inline-flex items-center gap-2 rounded-xl border border-border px-8 py-4 text-base font-medium text-foreground transition-all hover:border-accent/50"
-        >
-          Google Play 다운로드
-        </a>
-      ) : (
-        <span class="rounded-xl border border-border px-8 py-4 text-sm text-muted-foreground">
-          앱스토어 — 출시 예정
-        </span>
-      )}
+    </div>
+
+    <!-- 앱 출시 안내 -->
+    <div class="mx-auto mt-10 max-w-lg rounded-2xl border border-border bg-muted/50 px-6 py-5 text-left">
+      <p class="mb-3 text-sm font-semibold text-foreground">📱 앱 출시 안내</p>
+      <ul class="space-y-2 text-sm text-muted-foreground">
+        <li class="flex items-start gap-2">
+          <span class="mt-0.5 text-green-500">●</span>
+          <span><strong class="text-foreground">지금 바로 이용 가능</strong> — 모바일 웹 브라우저로 즐기실 수 있습니다.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-0.5 text-yellow-500">●</span>
+          <span><strong class="text-foreground">Google Play</strong> — 조만간 출시 예정입니다.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-0.5 text-orange-400">●</span>
+          <span><strong class="text-foreground">App Store (iPhone)</strong> — 좀 더 시일이 걸릴 예정입니다.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 홈 화면 추가 가이드 -->
+    <div class="mx-auto mt-6 max-w-lg rounded-2xl border border-accent/30 bg-accent/5 px-6 py-6 text-left">
+      <p class="mb-1 text-sm font-semibold text-foreground">💡 앱처럼 편리하게 쓰는 방법</p>
+      <p class="mb-4 text-xs text-muted-foreground">홈 화면에 추가하면 매일 아침 아이콘 한 번으로 바로 열 수 있어요.</p>
+
+      <div class="space-y-4">
+        <!-- 안드로이드 -->
+        <div>
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">🤖 안드로이드 (크롬 브라우저)</p>
+          <ol class="space-y-1.5 text-sm text-foreground">
+            <li class="flex gap-2"><span class="shrink-0 font-bold text-accent">1.</span><span>Chrome에서 <strong>app.omyqt.com</strong> 접속</span></li>
+            <li class="flex gap-2"><span class="shrink-0 font-bold text-accent">2.</span><span>오른쪽 위 <strong>⋮ (점 세 개)</strong> 버튼 탭</span></li>
+            <li class="flex gap-2"><span class="shrink-0 font-bold text-accent">3.</span><span><strong>"홈 화면에 추가"</strong> 선택 → 추가 완료</span></li>
+          </ol>
+        </div>
+
+        <div class="border-t border-border/40"></div>
+
+        <!-- 아이폰 -->
+        <div>
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">🍎 아이폰 (사파리 브라우저)</p>
+          <ol class="space-y-1.5 text-sm text-foreground">
+            <li class="flex gap-2"><span class="shrink-0 font-bold text-accent">1.</span><span>Safari에서 <strong>app.omyqt.com</strong> 접속</span></li>
+            <li class="flex gap-2"><span class="shrink-0 font-bold text-accent">2.</span><span>하단 가운데 <strong>공유 버튼 (□↑)</strong> 탭</span></li>
+            <li class="flex gap-2"><span class="shrink-0 font-bold text-accent">3.</span><span><strong>"홈 화면에 추가"</strong> 선택 → 추가 완료</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <p class="mt-4 text-xs text-muted-foreground">
+        홈 화면에 추가 후 매일 아침 OMYQT 아이콘을 탭하면 바로 오늘의 말씀이 열립니다.
+      </p>
     </div>
 
     <!-- Waitlist email -->
-    <div class="mx-auto mt-12 max-w-md">
+    <div class="mx-auto mt-10 max-w-md">
       <p class="mb-4 text-sm text-muted-foreground">
-        앱 출시 알림을 받아보세요
+        Google Play · App Store 출시 알림 받기
       </p>
       <form id="waitlist-form" class="flex gap-2">
         <input
