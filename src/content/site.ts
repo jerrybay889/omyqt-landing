@@ -90,6 +90,13 @@ export const site = {
     termsUrl: '/terms',
   },
 
+  company: {
+    legalName: '주식회사 글로보더',
+    businessRegistrationNumber: '386-86-03467',
+    businessAddress: '경기도 고양시 덕양구 토당동 373-10',
+    privacyOfficerEmail: 'jerrybay889@gmail.com',
+  },
+
   seo: {
     title: 'OMYQT — 매일 아침 AI 성경 묵상 앱',
     description: '매일 아침 AI가 당신의 삶에 맞춘 성경 말씀과 묵상을 준비합니다. 절별 해석, 적용 가이드, 기도문까지. 무료로 시작하세요.',
