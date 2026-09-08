@@ -88,13 +88,34 @@ export const site = {
     email: 'hello@omyqt.com',
     privacyUrl: '/privacy',
     termsUrl: '/terms',
+    paidServiceUrl: '/paid-service',
   },
 
   company: {
     legalName: '주식회사 글로보더',
+    representativeName: '배제협',
     businessRegistrationNumber: '386-86-03467',
-    businessAddress: '경기도 고양시 덕양구 토당동 373-10',
+    corporateRegistrationNumber: '285011-0060205',
+    businessOpeningDate: '2025-05-02',
+    businessAddress: '경기도 고양시 덕양구 토당동 373-10 3층 649호',
+    // 통신판매업은 신고하지 않았다. 사실대로 "미신고"로 고지한다.
+    mailOrderSalesRegistration: '미신고',
+    // 검증된 대표 전화번호가 없어 표기하지 않는다. 문의는 이메일로 받는다.
+    supportEmail: 'jerrybay889@gmail.com',
     privacyOfficerEmail: 'jerrybay889@gmail.com',
+  },
+
+  // 유료 구독 요금제 (모든 금액 부가가치세 포함, 매월 자동 갱신)
+  plans: [
+    { key: 'plus', name: 'Plus', priceKrw: 3000, seats: 1, summary: '광고 없이 30일+ 기록 열람, 키워드 리포트, 리마인더 3개, 북마크·한 줄 적용' },
+    { key: 'family3', name: 'Family 3', priceKrw: 7900, seats: 3, summary: '최대 3명 Plus 권한, 가족 공동 QT, 주간 가족 리포트' },
+    { key: 'family5', name: 'Family 5', priceKrw: 9900, seats: 5, summary: '최대 5명 Plus 권한, 가족 공동 QT, 주간 가족 리포트, 초대 링크 참여' },
+  ],
+
+  legal: {
+    // 문서 시행일 / 최종 개정일
+    termsEffectiveDate: '2026-09-08',
+    privacyEffectiveDate: '2026-09-08',
   },
 
   seo: {
