@@ -1,39 +1,229 @@
 ---
 import Base from '../layouts/Base.astro';
 import Footer from '../components/Footer.astro';
+import LegalMerchantBlock from '../components/LegalMerchantBlock.astro';
 import { site } from '../content/site';
+
+const c = site.company;
+const effectiveDate = site.legal.privacyEffectiveDate;
 ---
 
-<Base title="개인정보처리방침 | OMYQT">
+<Base
+  title="개인정보처리방침 | OMYQT"
+  description="OMYQT 개인정보처리방침 — 수집하는 개인정보 항목, 처리 목적, 보유기간, 위탁·국외이전, 정보주체의 권리를 안내합니다."
+>
   <main class="px-4 py-12 sm:py-16">
     <article class="mx-auto min-w-0 max-w-3xl rounded-2xl border border-border bg-background p-6 sm:p-10">
       <a href="/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">← OMYQT 홈</a>
       <h1 class="mt-6 font-display text-3xl font-bold text-foreground">개인정보처리방침</h1>
-      <p class="mt-4 leading-relaxed text-muted-foreground">
-        {site.company.legalName}는 OMYQT 서비스의 운영 주체입니다.
-      </p>
+      <p class="mt-3 text-sm text-muted-foreground">시행일: {effectiveDate}</p>
 
-      <section class="mt-10">
-        <h2 class="text-lg font-semibold text-foreground">개인정보보호담당자</h2>
-        <p class="mt-3 min-w-0 break-words leading-relaxed text-muted-foreground [overflow-wrap:anywhere]">
-          이메일:
-          <a
-            href={`mailto:${site.company.privacyOfficerEmail}`}
-            class="underline underline-offset-2 transition-colors hover:text-foreground"
-          >
-            {site.company.privacyOfficerEmail}
-          </a>
+      <div class="prose prose-neutral mt-8 max-w-none prose-headings:font-display prose-headings:text-foreground prose-h2:mt-10 prose-h2:text-xl prose-p:leading-relaxed prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-foreground prose-table:text-sm [&_table]:block [&_table]:overflow-x-auto [&_thead_th]:whitespace-nowrap">
+
+        <p>
+          {c.legalName}(이하 “회사”)는 성경 묵상 서비스 “OMYQT”(이하 “서비스”)를 운영하며, 「개인정보 보호법」 등 관련 법령을 준수하여
+          이용자의 개인정보를 보호합니다. 회사는 개인정보처리방침을 통해 이용자의 개인정보가 어떤 목적과 방식으로 처리되고 있으며,
+          개인정보 보호를 위해 어떤 조치가 취해지고 있는지 알려드립니다.
         </p>
-      </section>
 
-      <section aria-label="회사 정보" class="mt-10 border-t border-border pt-6">
-        <h2 class="text-lg font-semibold text-foreground">회사 정보</h2>
-        <dl class="mt-3 min-w-0 space-y-2 text-sm leading-relaxed text-muted-foreground">
-          <div><dt class="inline font-medium text-foreground">상호 </dt><dd class="inline">{site.company.legalName}</dd></div>
-          <div><dt class="inline font-medium text-foreground">사업자등록번호 </dt><dd class="inline">{site.company.businessRegistrationNumber}</dd></div>
-          <div class="break-words [overflow-wrap:anywhere]"><dt class="inline font-medium text-foreground">사업장 주소 </dt><dd class="inline">{site.company.businessAddress}</dd></div>
-        </dl>
-      </section>
+        <h2>1. 개인정보의 처리 목적</h2>
+        <p>회사는 다음의 목적을 위하여 개인정보를 처리하며, 목적이 변경되는 경우 「개인정보 보호법」에 따라 별도 동의를 받는 등 필요한 조치를 이행합니다.</p>
+        <ul>
+          <li><strong>회원 가입 및 관리</strong>: 회원 식별·인증, 로그인 유지, 부정 이용 방지, 고지사항 전달, 문의·불만 처리</li>
+          <li><strong>서비스 제공</strong>: 매일 묵상 본문 및 AI 해석·요약·적용·기도문 제공, 이용자의 신앙 여정에 맞춘 개인화, 회고 기록·기도제목·타임라인·북마크 기능 제공</li>
+          <li><strong>가족(그룹) 기능 제공</strong>: 가족 공동 QT, 그룹 초대·구성원 관리, 주간 가족 리포트 제공</li>
+          <li><strong>알림 제공</strong>: 이용자가 설정한 시간에 묵상·기도 알림(웹 푸시) 발송</li>
+          <li><strong>유료 서비스 운영</strong>: 구독 신청·결제·정기결제, 결제 도용 방지, 청약철회·환불 처리, 영수증·거래내역 관리</li>
+          <li><strong>서비스 개선 및 통계</strong>: 이용 현황 분석, 오류 진단 및 안정성 확보, 신규 기능 개발</li>
+          <li><strong>법령상 의무 이행 및 분쟁 대응</strong></li>
+        </ul>
+
+        <h2>2. 처리하는 개인정보의 항목 및 수집 방법</h2>
+
+        <h3>가. 이용자가 직접 제공하는 정보</h3>
+        <table>
+          <thead><tr><th>구분</th><th>항목</th></tr></thead>
+          <tbody>
+            <tr><td>계정(필수)</td><td>이메일 주소, 비밀번호(이메일 가입 시, 암호화 저장), 소셜 로그인 시 소셜 서비스가 제공하는 식별자 및 제공자 구분(Google, Kakao)</td></tr>
+            <tr><td>프로필(필수)</td><td>출생연도, 성별, 거주 지역</td></tr>
+            <tr><td>프로필(선택)</td><td>교회명, 휴대전화번호</td></tr>
+            <tr><td>개인화 설문(선택)</td><td>신앙 여정·관심 주제에 관한 설문 답변</td></tr>
+            <tr><td>이용자 생성 콘텐츠</td><td>회고 기록(묵상·감사·기도 내용 및 공개 범위 설정), 기도제목(제목·상세·상태·리마인더 설정), QT 좋아요 여부, 마음에 담기(북마크), 가족 그룹명·초대코드</td></tr>
+            <tr><td>고객 문의</td><td>문의 내용, 답변을 위한 연락처(이메일)</td></tr>
+          </tbody>
+        </table>
+
+        <h3>나. 서비스 이용 과정에서 생성·수집되는 정보</h3>
+        <table>
+          <thead><tr><th>구분</th><th>항목</th></tr></thead>
+          <tbody>
+            <tr><td>서비스 이용 기록</td><td>이용 이벤트 로그(이벤트명, 세션 식별자, 이벤트 속성), 생성된 QT 기록 및 AI 해석 결과</td></tr>
+            <tr><td>오류·접속 정보</td><td>오류 메시지 및 스택, 발생 URL, 브라우저·기기 정보(User-Agent), 접속 일시</td></tr>
+            <tr><td>푸시 알림</td><td>웹 푸시 구독 정보(푸시 엔드포인트, 인증 키, User-Agent), 알림 설정 값</td></tr>
+            <tr><td>결제 정보</td><td>구독 요금제·상태·결제주기(시작일·종료일), 체험 종료일, 주문번호, 결제 금액 및 결제 상태, 결제대행사가 부여한 고객·결제 식별자(회사는 이를 원문이 아닌 다이제스트 형태로 보관)</td></tr>
+          </tbody>
+        </table>
+        <p>
+          <strong>결제수단 정보 미보유</strong>: 카드번호, 유효기간, CVC 등 결제수단 정보는 결제대행사(토스페이먼츠(주))가 처리하며 회사는 저장하지 않습니다.
+        </p>
+
+        <h3>다. 종교적 신념과 관련될 수 있는 정보의 처리</h3>
+        <p>
+          서비스의 성격상 이용자가 입력하는 기도·묵상·회고 내용, 개인화 설문 답변, 교회명 등에는 종교적 신념에 관한 정보가 포함될 수 있습니다.
+          회사는 이러한 정보를 <strong>이용자가 서비스 이용을 위해 자발적으로 입력한 범위에서, 이용자의 별도 동의에 근거하여 서비스 제공 목적으로만</strong> 처리하며,
+          이용자는 해당 정보의 입력을 원하지 않을 경우 입력하지 않을 수 있습니다(다만 일부 개인화 기능은 제한될 수 있습니다).
+        </p>
+
+        <h3>라. 수집 방법</h3>
+        <ul>
+          <li>회원가입, 온보딩, 프로필·설정 변경, 콘텐츠 작성, 고객 문의 과정에서 이용자가 직접 입력</li>
+          <li>소셜 로그인 시 이용자가 동의한 범위에서 소셜 서비스로부터 제공</li>
+          <li>서비스 이용 과정에서 자동으로 생성·기록</li>
+        </ul>
+
+        <h2>3. 개인정보의 처리 및 보유 기간</h2>
+        <p>
+          회사는 법령에 따른 보유 기간 또는 이용자로부터 동의받은 보유 기간 내에서 개인정보를 처리·보유합니다.
+          원칙적으로 <strong>회원 탈퇴 시 또는 처리 목적 달성 시 지체 없이 파기</strong>하며, 다음의 경우에는 예외로 합니다.
+        </p>
+        <ul>
+          <li><strong>회원 계정 및 프로필·콘텐츠</strong>: 회원 탈퇴 시까지 보유 후 파기. 단, 관계 법령 위반에 따른 수사·조사 등이 진행 중인 경우 종료 시까지 보유.</li>
+          <li><strong>서비스 이용·오류 로그, 푸시 구독 정보</strong>: 수집 목적 달성 시까지 보유 후 파기하며, 통신비밀보호법에 따른 접속기록은 3개월간 보관합니다.</li>
+        </ul>
+        <p>또한 아래 법령에서 정한 기간 동안 관련 정보를 보관합니다.</p>
+        <table>
+          <thead><tr><th>보존 항목</th><th>근거 법령</th><th>보존 기간</th></tr></thead>
+          <tbody>
+            <tr><td>계약 또는 청약철회 등에 관한 기록</td><td>전자상거래 등에서의 소비자보호에 관한 법률</td><td>5년</td></tr>
+            <tr><td>대금결제 및 재화 등의 공급에 관한 기록</td><td>전자상거래 등에서의 소비자보호에 관한 법률</td><td>5년</td></tr>
+            <tr><td>소비자의 불만 또는 분쟁처리에 관한 기록</td><td>전자상거래 등에서의 소비자보호에 관한 법률</td><td>3년</td></tr>
+            <tr><td>표시·광고에 관한 기록</td><td>전자상거래 등에서의 소비자보호에 관한 법률</td><td>6개월</td></tr>
+            <tr><td>전자금융거래에 관한 기록</td><td>전자금융거래법</td><td>5년</td></tr>
+            <tr><td>웹사이트 방문(접속) 기록</td><td>통신비밀보호법</td><td>3개월</td></tr>
+          </tbody>
+        </table>
+
+        <h2>4. 개인정보의 파기 절차 및 방법</h2>
+        <ul>
+          <li><strong>파기 절차</strong>: 파기 사유가 발생한 개인정보를 선정하고, 개인정보 보호책임자의 확인을 거쳐 파기합니다. 법령에 따라 보존이 필요한 정보는 별도 분리하여 보관합니다.</li>
+          <li><strong>파기 방법</strong>: 전자적 파일 형태의 정보는 복구·재생이 불가능한 방법으로 영구 삭제하며, 종이 문서는 분쇄하거나 소각합니다.</li>
+        </ul>
+
+        <h2>5. 개인정보의 제3자 제공</h2>
+        <p>
+          회사는 이용자의 개인정보를 이 방침에서 고지한 범위를 넘어 제3자에게 제공하지 않습니다.
+          다만 다음의 경우에는 예외로 합니다.
+        </p>
+        <ul>
+          <li>이용자가 사전에 동의한 경우</li>
+          <li>법령에 특별한 규정이 있거나 수사기관이 법령에 정한 절차와 방법에 따라 요청한 경우</li>
+        </ul>
+        <p>
+          가족(그룹) 기능에서 이용자가 회고 내용의 공개 범위를 직접 “공개”로 설정한 경우, 해당 내용은 이용자가 지정한 같은 그룹의 구성원에게만 표시됩니다.
+          이는 이용자의 선택에 따른 서비스 기능이며, 공개 범위를 설정하지 않은 회고 기록은 <strong>기본적으로 비공개로 저장되어 본인 외에는 열람할 수 없습니다.</strong>
+        </p>
+
+        <h2>6. 개인정보 처리의 위탁</h2>
+        <p>회사는 원활한 서비스 제공을 위하여 아래와 같이 개인정보 처리 업무를 위탁하고 있으며, 위탁계약 시 개인정보가 안전하게 관리되도록 필요한 사항을 규정합니다.</p>
+        <table>
+          <thead><tr><th>수탁자</th><th>위탁 업무</th></tr></thead>
+          <tbody>
+            <tr><td>Supabase, Inc.</td><td>데이터베이스·인증·파일 저장·서버리스 기능 등 클라우드 인프라 운영 (데이터 저장 위치: 대한민국 서울 리전)</td></tr>
+            <tr><td>Anthropic, PBC</td><td>AI를 이용한 성경 해석·요약·적용 가이드·기도문 생성 처리</td></tr>
+            <tr><td>토스페이먼츠(주)</td><td>결제 처리, 정기결제 승인, 결제 도용 방지</td></tr>
+            <tr><td>Vercel Inc.</td><td>웹사이트 및 애플리케이션 호스팅·배포</td></tr>
+          </tbody>
+        </table>
+        <p>
+          웹 푸시 알림은 이용자가 사용하는 브라우저·운영체제 제공사의 푸시 전송 서비스를 통해 전달되며, 이 과정에서 푸시 엔드포인트 정보가 해당 제공사를 경유합니다.
+        </p>
+
+        <h2>7. 개인정보의 국외 이전</h2>
+        <p>회사는 아래와 같이 개인정보를 국외로 이전(처리위탁)하고 있습니다. 이용자는 개인정보 국외 이전에 동의하지 않을 수 있으며, 동의하지 않는 경우 관련 기능(AI 묵상 생성 등) 이용이 제한될 수 있습니다.</p>
+        <table>
+          <thead><tr><th>이전받는 자</th><th>이전 국가</th><th>이전 항목</th><th>이전 일시 및 방법</th><th>이용 목적 및 보유 기간</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Anthropic, PBC</td>
+              <td>미국</td>
+              <td>AI 처리에 필요한 성경 본문, 개인화 신호(연령대 등 가공된 라벨, 성별·지역·교회명, 최근 회고 요약)</td>
+              <td>묵상 생성 요청 시점에 암호화된 통신 구간(HTTPS)을 통해 전송</td>
+              <td>AI 해석·기도문 생성. 처리 후 지체 없이 삭제되며 모델 학습에 사용되지 않음</td>
+            </tr>
+            <tr>
+              <td>Supabase, Inc.</td>
+              <td>미국</td>
+              <td>서비스 이용을 위해 저장되는 개인정보 전체</td>
+              <td>운영·기술 지원 과정에서 필요한 경우 원격 접근(데이터 저장은 대한민국 서울 리전)</td>
+              <td>클라우드 인프라 운영·유지보수. 회원 탈퇴 또는 위탁계약 종료 시까지</td>
+            </tr>
+            <tr>
+              <td>Vercel Inc.</td>
+              <td>미국</td>
+              <td>서비스 접속 시 처리되는 접속 정보(IP, User-Agent 등)</td>
+              <td>서비스 접속 시점에 네트워크를 통해 전송</td>
+              <td>웹/애플리케이션 호스팅·배포. 로그 보관 정책에 따른 기간</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>8. 정보주체와 법정대리인의 권리·의무 및 행사 방법</h2>
+        <ul>
+          <li>이용자는 언제든지 자신의 개인정보에 대한 열람·정정·삭제·처리정지를 요구할 수 있습니다.</li>
+          <li>프로필·설정·콘텐츠는 서비스 내 화면에서 직접 조회·수정·삭제할 수 있으며, 계정 삭제(회원 탈퇴) 및 개인정보 열람·삭제·처리정지 요청은 아래 개인정보 보호책임자에게 이메일로 요청할 수 있습니다. 회사는 요청 접수 후 관련 법령에 따라 지체 없이(원칙적으로 10일 이내) 조치하고 결과를 통지합니다.</li>
+          <li>이용자는 개인정보를 최신 상태로 유지할 의무가 있으며, 부정확한 정보 입력으로 발생하는 불이익의 책임은 이용자에게 있습니다.</li>
+          <li>다른 사람의 개인정보를 도용하거나 침해하여서는 안 됩니다.</li>
+        </ul>
+
+        <h2>9. 만 14세 미만 아동 및 미성년자</h2>
+        <ul>
+          <li>회사는 만 14세 미만 아동의 개인정보를 수집할 때 법정대리인의 동의가 필요하며, 법정대리인의 동의 없이 수집된 사실이 확인되면 지체 없이 파기합니다.</li>
+          <li>만 19세 미만 미성년자가 유료 서비스를 이용하려는 경우 법정대리인의 동의가 필요하며, 동의 없이 체결된 계약은 본인 또는 법정대리인이 취소할 수 있습니다.</li>
+        </ul>
+
+        <h2>10. 개인정보의 안전성 확보 조치</h2>
+        <ul>
+          <li><strong>관리적 조치</strong>: 개인정보 취급자 최소화 및 접근 권한 관리, 내부 관리계획 수립</li>
+          <li><strong>기술적 조치</strong>: 전송 구간 암호화(HTTPS), 비밀번호 등 중요 정보의 암호화 저장, 행(Row) 단위 접근통제 정책을 통한 “본인 데이터만 접근” 기본 원칙 적용, 결제 식별자 등 민감 값의 다이제스트 처리, 접근 기록 관리</li>
+          <li><strong>물리적 조치</strong>: 개인정보가 저장되는 인프라에 대한 접근 통제(수탁 클라우드 사업자의 보호조치 포함)</li>
+        </ul>
+
+        <h2>11. 쿠키 등 자동 수집 장치의 운영</h2>
+        <p>
+          서비스는 로그인 상태 유지 및 기본 기능 제공을 위해 브라우저의 저장소(쿠키, 로컬 스토리지 등)와 세션 식별자를 사용합니다.
+          이용자는 브라우저 설정을 통해 저장을 거부할 수 있으나, 이 경우 로그인 등 일부 기능 이용이 제한될 수 있습니다.
+          회사는 광고 목적의 제3자 추적 쿠키를 사용하지 않습니다.
+        </p>
+
+        <h2>12. 개인정보 보호책임자 및 열람청구 접수 부서</h2>
+        <p>
+          이용자는 개인정보 처리에 관한 문의, 불만, 피해 구제 등을 개인정보 보호책임자에게 문의할 수 있으며, 회사는 신속하게 답변·처리합니다.
+        </p>
+        <ul>
+          <li>개인정보 보호책임자: OMYQT 운영팀</li>
+          <li>연락처(이메일): <a href={`mailto:${c.privacyOfficerEmail}`}>{c.privacyOfficerEmail}</a></li>
+        </ul>
+
+        <h2>13. 권익침해 구제 방법</h2>
+        <p>이용자는 아래 기관에 개인정보 침해에 대한 피해 구제, 상담 등을 신청할 수 있습니다.</p>
+        <ul>
+          <li>개인정보분쟁조정위원회: (국번없이) 1833-6972 / www.kopico.go.kr</li>
+          <li>개인정보침해신고센터: (국번없이) 118 / privacy.kisa.or.kr</li>
+          <li>대검찰청 사이버수사과: (국번없이) 1301 / www.spo.go.kr</li>
+          <li>경찰청 사이버범죄 신고시스템: (국번없이) 182 / ecrm.police.go.kr</li>
+        </ul>
+
+        <h2>14. 개인정보처리방침의 변경</h2>
+        <p>
+          이 개인정보처리방침은 {effectiveDate}부터 적용됩니다. 법령·서비스 변경에 따라 내용이 추가·삭제·수정되는 경우
+          변경 사항의 시행 7일 전(이용자 권리에 중대한 영향을 미치는 변경은 30일 전)부터 서비스 내 공지 또는 이메일을 통해 안내합니다.
+        </p>
+        <ul>
+          <li>{effectiveDate}: 최초 제정·시행 (사업자 정보 정합화, 위탁·국외이전 현행화)</li>
+        </ul>
+      </div>
+
+      <LegalMerchantBlock heading="개인정보처리자(사업자) 정보" />
     </article>
   </main>
   <Footer />

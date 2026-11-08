@@ -1,0 +1,42 @@
+---
+import { site } from '../content/site';
+
+interface Props {
+  /** 섹션 제목 (기본: "사업자 정보") */
+  heading?: string;
+}
+
+const { heading = '사업자 정보' } = Astro.props;
+const c = site.company;
+---
+
+<section aria-label={heading} class="mt-10 border-t border-border pt-6">
+  <h2 class="text-lg font-semibold text-foreground">{heading}</h2>
+  <dl class="mt-3 min-w-0 space-y-2 text-sm leading-relaxed text-muted-foreground">
+    <div><dt class="inline font-medium text-foreground">상호 </dt><dd class="inline">{c.legalName}</dd></div>
+    <div><dt class="inline font-medium text-foreground">대표자 </dt><dd class="inline">{c.representativeName}</dd></div>
+    <div><dt class="inline font-medium text-foreground">사업자등록번호 </dt><dd class="inline">{c.businessRegistrationNumber}</dd></div>
+    <div><dt class="inline font-medium text-foreground">법인등록번호 </dt><dd class="inline">{c.corporateRegistrationNumber}</dd></div>
+    <div><dt class="inline font-medium text-foreground">개업일자 </dt><dd class="inline">{c.businessOpeningDate}</dd></div>
+    <div><dt class="inline font-medium text-foreground">통신판매업 신고 </dt><dd class="inline">{c.mailOrderSalesRegistration}</dd></div>
+    <div class="break-words [overflow-wrap:anywhere]"><dt class="inline font-medium text-foreground">사업장 주소 </dt><dd class="inline">{c.businessAddress}</dd></div>
+    <div class="break-words [overflow-wrap:anywhere]">
+      <dt class="inline font-medium text-foreground">고객센터 전화 </dt>
+      <dd class="inline">
+        <a href={`tel:${c.supportPhone}`} class="underline underline-offset-2 transition-colors hover:text-foreground">{c.supportPhone}</a>
+      </dd>
+    </div>
+    <div class="break-words [overflow-wrap:anywhere]">
+      <dt class="inline font-medium text-foreground">고객지원 이메일 </dt>
+      <dd class="inline">
+        <a href={`mailto:${c.supportEmail}`} class="underline underline-offset-2 transition-colors hover:text-foreground">{c.supportEmail}</a>
+      </dd>
+    </div>
+    <div class="break-words [overflow-wrap:anywhere]">
+      <dt class="inline font-medium text-foreground">개인정보보호담당자 </dt>
+      <dd class="inline">
+        <a href={`mailto:${c.privacyOfficerEmail}`} class="underline underline-offset-2 transition-colors hover:text-foreground">{c.privacyOfficerEmail}</a>
+      </dd>
+    </div>
+  </dl>
+</section>
