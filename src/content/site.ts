@@ -100,7 +100,8 @@ export const site = {
     businessAddress: '경기도 고양시 덕양구 토당동 373-10 3층 649호',
     // 통신판매업은 신고하지 않았다. 사실대로 "미신고"로 고지한다.
     mailOrderSalesRegistration: '미신고',
-    // 검증된 대표 전화번호가 없어 표기하지 않는다. 문의는 이메일로 받는다.
+    // 2026-11-08 Owner 직접 정상 수신 확인. P02 PG 고객지원 번호 승인.
+    supportPhone: '050-6636-9581',
     supportEmail: 'jerrybay889@gmail.com',
     privacyOfficerEmail: 'jerrybay889@gmail.com',
   },

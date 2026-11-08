@@ -145,26 +145,22 @@ mustInclude('Footer.astro', footer, [
 ]);
 
 // ---------------------------------------------------------------------------
-// 7. No invented telephone number anywhere in the public surface
+// 7. Exact Owner-verified phone, no obsolete unverified notice
 // ---------------------------------------------------------------------------
-const legalFiles = [
-  'src/content/site.ts',
-  'src/components/Footer.astro',
-  'src/components/LegalMerchantBlock.astro',
-  'src/pages/terms.astro',
-  'src/pages/privacy.astro',
-  'src/pages/paid-service.astro',
+const companySource = read('src/content/site.ts');
+mustInclude('site.ts', companySource, ["supportPhone: '050-6636-9581'"]);
+const phoneUses = [
+  ['src/components/Footer.astro', 'site.company.supportPhone'],
+  ['src/components/LegalMerchantBlock.astro', 'c.supportPhone'],
+  ['src/pages/paid-service.astro', 'c.supportPhone'],
 ];
-for (const f of legalFiles) {
-  const t = read(f);
-  if (/href=["']tel:/i.test(t)) fail(`${f}: contains a tel: link — no verified phone exists`);
-  if (/(대표\s*전화|대표번호|고객센터\s*전화|전화번호)\s*[:：]?\s*(\+?\d[\d\-\s]{6,})/.test(t)) {
-    fail(`${f}: appears to publish a company phone number`);
-  }
+for (const [file, binding] of phoneUses) {
+  mustInclude(file, read(file), [binding]);
 }
-// The merchant block must positively state the phone is not yet available.
-if (!read('src/components/LegalMerchantBlock.astro').includes('대표 전화번호가 없어')) {
-  fail('LegalMerchantBlock.astro: must disclose that no verified phone number is published yet');
+for (const file of phoneUses.map(([f]) => f)) {
+  if (/대표 전화번호는 확인되는 대로|검증된 대표 전화번호가 없어|검증된 대표 전화번호가 확보되는 대로/.test(read(file))) {
+    fail(`${file}: obsolete unverified-phone notice`);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -205,4 +201,4 @@ if (failures.length) {
   console.error('');
   process.exit(1);
 }
-console.log('✓ legal validation passed — business facts, legal coverage, mail-order status, no secrets/phone leaks');
+console.log('✓ legal validation passed — business facts, legal coverage, mail-order status, no secrets and Owner-verified phone');
